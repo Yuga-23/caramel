@@ -20,7 +20,7 @@ archive '**/*.war'
         }
         stage("Deploy"){
             steps{
-                sh 'scp /var/lib/jenkins/workspace/yugandhar_pipeline/target/app.war  ubuntu@172.31.19.219:/home/ubuntu/appserver/yuga.war'
+                sh 'scp /home/ubuntu/workspace/yugandhar_pipeline/target/app.war  ubuntu@172.31.19.219:/home/ubuntu/appserver/yuga.war'
             }
         }
         stage("Nexus deploy"){
