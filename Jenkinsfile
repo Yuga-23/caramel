@@ -25,7 +25,7 @@ archive '**/*.war'
         }
         stage("Nexus deploy"){
             steps{
-                nexusPublisher nexusInstanceId: 'releases', nexusRepositoryId: 'sampledeploy', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/yugandhar_pipeline/target/app.war']], mavenCoordinate: [artifactId: 'app', groupId: 'caramelit', packaging: 'war', version: '3.0']]]
+                nexusPublisher nexusInstanceId: 'releases', nexusRepositoryId: 'sampledeploy', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/home/ubuntu/workspace/yugandhar_pipeline/target/app.war']], mavenCoordinate: [artifactId: 'app', groupId: 'caramelit', packaging: 'war', version: '3.0']]]
 
             }
         }
