@@ -1,5 +1,5 @@
 pipeline{
-    agent(label:'linux:node')
+    agent{label'linux:node'}
     stages{
         stage("Download"){
             steps{
