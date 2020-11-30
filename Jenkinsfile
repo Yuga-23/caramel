@@ -9,7 +9,7 @@ pipeline{
         }
         stage("build"){
             steps{
-                sh 'package'
+                sh 'clean'
             }
         }
         stage("archive"){
