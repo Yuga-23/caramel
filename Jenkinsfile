@@ -22,7 +22,7 @@ archive '**/*.war'
             }
         }
         stage("Deploy"){
-             agent{label"linux-node}
+             agent{label"linux-node"}
             steps{
                 sh 'scp /home/ubuntu/workspace/yugandhar_pipeline/target/app.war  ubuntu@172.31.19.219:/home/ubuntu/appserver/yuga.war'
             }
