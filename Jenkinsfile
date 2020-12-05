@@ -1,24 +1,28 @@
 pipeline{
-    agent{label'linux-node'}
+    agent any
     stages{
         stage("Download"){
+            agent{label"master"}
             steps{
                             git credentialsId: 'bc9b3ce7-a257-46ae-9d40-824f939c81d4', url: 'https://github.com/Yuga-23/caramel.git'
 
             }
         }
         stage("build"){
+             agent{label"master"}
             steps{
                 sh 'mvn package'
             }
         }
         stage("archive"){
+             agent{label"linux-node"}
             steps{
                 // This step should not normally be used in your script. Consult the inline help for details.
 archive '**/*.war'
             }
         }
         stage("Deploy"){
+             agent{label"linux-node}
             steps{
                 sh 'scp /home/ubuntu/workspace/yugandhar_pipeline/target/app.war  ubuntu@172.31.19.219:/home/ubuntu/appserver/yuga.war'
             }
