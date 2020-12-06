@@ -18,7 +18,7 @@ pipeline{
                 sh 'mvn package'
                 
             }
-            },
+            }
         }
         stage("archive"){
              agent{label"master"}
