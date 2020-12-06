@@ -12,14 +12,16 @@ pipeline{
             }
         }
         stage("build"){
-             agent{label"master"}
+            parallel 'linux-node': {
+             agent{label"linux-node"}
             steps{
                 sh 'mvn package'
                 
             }
+            },
         }
         stage("archive"){
-             agent{label"linux-node"}
+             agent{label"master"}
             steps{
                 // This step should not normally be used in your script. Consult the inline help for details.
 archive '**/*.war'
