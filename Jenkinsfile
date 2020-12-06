@@ -11,13 +11,15 @@ pipeline{
                         
             }
         }
-        stage("build"){
+        stage("parallel"){
             parallel 'linux-node': {
-             agent{label"linux-node"}
+                stage("parallel"){
+            /* agent{label"linux-node"} */
             steps{
                 sh 'mvn package'
                 
             }
+                }
             }
         }
         stage("archive"){
