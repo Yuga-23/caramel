@@ -4,6 +4,13 @@ pipeline{
     buildDiscarder(logRotator(numToKeepStr: '3'))
   }
     stages{
+        stage("build name"){
+        agent(label"linux-node")
+            steps{
+                buildName 'Yuga'
+            }
+        }
+        
         stage("Download"){
             agent{label"master"}
             steps{
