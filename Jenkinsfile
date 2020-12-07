@@ -5,7 +5,7 @@ pipeline{
   }
     stages{
         stage("build name"){
-        agent(label"linux-node")
+            agent{label"linux-node"}
             steps{
                 buildName 'Yuga'
             }
