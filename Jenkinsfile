@@ -43,7 +43,7 @@ archive '**/*.war'
         stage("Nexus deploy"){
             agent{label"linux-node"}
             steps{
-               nexusPublisher nexusInstanceId: 'nexus_server', nexusRepositoryId: 'practiceRepo-release', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/home/ubuntu/workspace/yugandhar_pipeline/target/app.war']], mavenCoordinate: [artifactId: 'app', groupId: 'caramelit', packaging: 'war', version: '3.0']]]
+               nexusPublisher nexusInstanceId: 'nexus_server', nexusRepositoryId: 'yuga-repo', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/home/ubuntu/workspace/yugandhar_pipeline/target/app.war']], mavenCoordinate: [artifactId: 'app', groupId: 'caramelit', packaging: 'war', version: '3.0']]]
             }
         }
         stage("Email"){
